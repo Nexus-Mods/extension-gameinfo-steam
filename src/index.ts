@@ -55,7 +55,7 @@ function findLocalInfo(
         const steamGame =
             entries.find(entry => normalize(entry.gamePath) === searchPath);
         if (steamGame === undefined) {
-          if (game.details['steamAppId'] !== undefined) {
+          if ((game.details !== undefined) && (game.details['steamAppId'] !== undefined)) {
             return Promise.resolve({
               appid: game.details['steamAppId'],
               lastUpdated: null,
