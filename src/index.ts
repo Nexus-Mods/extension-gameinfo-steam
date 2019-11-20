@@ -1,4 +1,4 @@
-import * as Promise from 'bluebird';
+import Promise from 'bluebird';
 import * as RequestT from 'request';
 import { log, types, util } from 'vortex-api';
 
