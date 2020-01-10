@@ -1,5 +1,4 @@
 import Promise from 'bluebird';
-import * as RequestT from 'request';
 import { log, types, util } from 'vortex-api';
 
 export class NotFound extends Error {
@@ -10,15 +9,7 @@ export class NotFound extends Error {
 }
 
 function sendRequest(url: string): Promise<string> {
-  return new Promise<string>((resolve, reject) => {
-    const request: typeof RequestT = require('request');
-    request(url, {}, (err: any, response: RequestT.RequestResponse, body: any) => {
-      if (err !== null) {
-        return reject(err);
-      }
-      return resolve(body);
-    });
-  });
+  return (util as any).rawRequest(url);
 }
 
 function safeGetTimestamp(input: Date): number {

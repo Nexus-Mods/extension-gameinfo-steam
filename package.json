@@ -21,7 +21,7 @@
     "react-dom": "^15.6.1",
     "react-i18next": "^4.6.2",
     "ts-loader": "^4.4.2",
-    "vortex-api": "Nexus-Mods/vortex-api",
+    "vortex-api": "Nexus-Mods/Vortex-api#electron7",
     "webpack": "^4.17.1"
   }
 }

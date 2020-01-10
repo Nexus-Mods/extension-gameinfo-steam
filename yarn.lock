@@ -255,10 +255,6 @@ asap@~2.0.3:
 asn1.js@^4.0.0:
   version "4.9.2"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-4.9.2.tgz#8117ef4f7ed87cd8f89044b5bff97ac243a16c9a"
-  dependencies:
-    bn.js "^4.0.0"
-    inherits "^2.0.1"
-    minimalistic-assert "^1.0.0"
 
 assert@^1.1.1:
   version "1.4.1"
@@ -2587,9 +2583,9 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vortex-api@Nexus-Mods/vortex-api:
-  version "0.16.11-pre.1"
-  resolved "https://codeload.github.com/Nexus-Mods/vortex-api/tar.gz/1e6d904f8f5bb6ffbe02019c00c36a7318ef1939"
+vortex-api@Nexus-Mods/Vortex-api#electron7:
+  version "1.1.1-electron7.2"
+  resolved "https://codeload.github.com/Nexus-Mods/Vortex-api/tar.gz/fb7bda1f9f63cc0d0dd251bfe65dcb11e4449762"
 
 warning@^3.0.0:
   version "3.0.0"
