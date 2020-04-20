@@ -41,7 +41,7 @@ function findLocalInfo(
         normalize = normalizeFunc;
         return util.steam.allGames();
       })
-      .then(entries => {
+      .then((entries: types.IGameStoreEntry[]) => {
         const searchPath = normalize(game.path);
         const steamGame =
             entries.find(entry => normalize(entry.gamePath) === searchPath);
@@ -55,7 +55,12 @@ function findLocalInfo(
             return Promise.reject(new NotFound());
           }
         } else {
-          return Promise.resolve(steamGame);
+          return Promise.resolve({
+            appid: steamGame.appid,
+            lastUpdated: steamGame.lastUpdated !== undefined
+              ? new Date(steamGame.lastUpdated)
+              : null,
+          });
         }
       });
 }
