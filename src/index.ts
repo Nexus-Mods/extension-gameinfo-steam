@@ -8,10 +8,6 @@ export class NotFound extends Error {
   }
 }
 
-function sendRequest(url: string): Promise<string> {
-  return (util as any).rawRequest(url);
-}
-
 function safeGetTimestamp(input: Date): number {
   if (input === null) {
     return null;
@@ -69,18 +65,20 @@ function queryGameSteam(api: types.IExtensionApi, game: IGameCombo):
   Promise<{ [key: string]: types.IGameDetail }> {
     let foundSteamGame: { appid: string, lastUpdated: Date };
 
+    // let dataRaw;
+
     return findLocalInfo(game)
         .then(localInfo => {
           foundSteamGame = localInfo;
           const url =
-              `http://store.steampowered.com/api/appdetails?appids=${foundSteamGame.appid}`;
+              `https://store.steampowered.com/api/appdetails?appids=${foundSteamGame.appid}`;
           log('debug', 'requesting game info from steam store', { url });
-          return sendRequest(url);
+          return util.jsonRequest(url);
         })
-        .then(response => {
-          let dat = JSON.parse(response)[foundSteamGame.appid];
+        .then((dat: string) => {
+          dat = dat[foundSteamGame.appid];
           if (dat['success'] !== true) {
-            log('warn', 'steam store request was unsuccessful', { response });
+            log('warn', 'steam store request was unsuccessful', { dat });
             return {};
           }
           dat = dat['data'];
