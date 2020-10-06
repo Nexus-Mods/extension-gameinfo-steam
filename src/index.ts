@@ -84,22 +84,22 @@ function queryGameSteam(api: types.IExtensionApi, game: IGameCombo):
           dat = dat['data'];
           const ret = {
             release_date: {
-              title: api.translate('Release Date'),
+              title: 'Release Date',
               value: util.getSafe(dat, ['release_date', 'date'], null),
               type: 'date',
             },
             last_updated: {
-              title: api.translate('Last Updated'),
+              title: 'Last Updated',
               value: safeGetTimestamp(foundSteamGame.lastUpdated),
               type: 'date',
             },
             website: {
-              title: api.translate('Website'),
+              title: 'Website',
               value: util.getSafe(dat, ['website'], null),
               type: 'url',
             },
             metacritic_score: {
-              title: api.translate('Score (Metacritic)'),
+              title: 'Score (Metacritic)',
               value: util.getSafe(dat, ['metacritic', 'score'], null),
             },
           };
